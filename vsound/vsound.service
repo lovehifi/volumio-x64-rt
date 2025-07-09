@@ -1,0 +1,29 @@
+[Unit]
+Description=Audio over Ether Virtual Sound Card
+Wants=network-online.target
+After=sound.target network.target network-online.target
+
+[Service]
+ExecStart=/usr/bin/aoe -i eth0
+Type=simple
+
+CPUAffinity=0
+CPUSchedulingPolicy=fifo
+CPUSchedulingPriority=99
+LimitRTPRIO=99
+LimitMEMLOCK=infinity
+StartLimitBurst=0
+User=root
+Group=root
+
+# none, realtime, best-effort, idle
+IOSchedulingClass=realtime
+
+# 0(highest) - 7(lowest)
+IOSchedulingPriority=0
+
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=sound.target
