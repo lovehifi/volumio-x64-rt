@@ -191,7 +191,7 @@ compile_kernel() {
   
   log "Compiling kernel ${KERNELVER}"
   start=$(date +%s.%N)
-  make -j$(nproc) deb-pkg KDEB_PKGVERSION=$(make kernelversion)
+  make -j$(nproc) deb-pkg KDEB_PKGVERSION="$(make kernelversion)-volumio-rt-1"
 }
 
 backup_to_storage() {
