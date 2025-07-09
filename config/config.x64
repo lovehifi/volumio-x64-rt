@@ -5,7 +5,7 @@ KERNELREPO="git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.gi
 KERNELBRANCH="6.12.y"
 KERNELBRANCH_PREV="6.6.y"
 KERNELDIR="${SRC}"/linux-${KERNELBRANCH}
-KERNELCONFIG="amd64-volumio-min-${KERNELBRANCH}_defconfig"
+KERNELCONFIG="amd64-volumio-min-6.12.y_defconfig"
 PATCH_KERNEL="no"
 CONFIGURE_KERNEL="no"
 
@@ -23,8 +23,9 @@ VOLUMIO_FW=("volumio-fw-brcm-nvram" "volumio-fw-brcm-b43" "volumio-fw-cfg80211" 
 VOLUMIO_BUILD_FIRMWARE=("20250509")
 
 export INSTALL_MOD_STRIP=1
-export LOCALVERSION=-volumio
+export LOCALVERSION=-volumio-rt-1
 
 # Optional: retain reassembled firmware archives during processing
 # Leave commented by default. Scripts must respect its absence.
 # KEEP_TMP=1
+
